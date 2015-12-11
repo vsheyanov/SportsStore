@@ -10,6 +10,7 @@ namespace SportsStore
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            routes.MapPageRoute(null, "list/{category}/{page}", "~/Pages/Listings.aspx");
             routes.MapPageRoute(null, "list/{page}", "~/Pages/Listings.aspx");
             routes.MapPageRoute(null, "", "~/Pages/Listings.aspx");
             routes.MapPageRoute(null, "list", "~/Pages/Listings.aspx");

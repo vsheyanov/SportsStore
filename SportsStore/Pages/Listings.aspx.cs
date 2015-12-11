@@ -23,10 +23,17 @@ namespace SportsStore.Pages
 
         protected IEnumerable<Product> GetProducts()
         {
-            return repository.Products
+            return FilteredProducts()
                 .OrderBy(product => product.Price)
                 .Skip((CurrentPage-1) * pageSize)
                 .Take(pageSize);
+        }
+
+        protected IEnumerable<Product> FilteredProducts()
+        {
+            IEnumerable<Product> products = repository.Products; 
+            string category = (string)RouteData.Values["category"] ?? Request.QueryString["category"];
+            return category == null ? products : products.Where(product => product.Category == category);
         }
 
         protected int CurrentPage
@@ -42,7 +49,7 @@ namespace SportsStore.Pages
         {
             get
             {
-                return (int)Math.Ceiling((decimal)repository.Products.Count() / pageSize);
+                return (int)Math.Ceiling((decimal)FilteredProducts().Count() / pageSize);
             }
         }
 
