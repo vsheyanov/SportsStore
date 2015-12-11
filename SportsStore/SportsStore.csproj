@@ -80,6 +80,7 @@
     </Content>
     <Content Include="Content\styles.css" />
     <Content Include="packages.config" />
+    <Content Include="Pages\Store.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -95,6 +96,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppStart\RouteConfig.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -108,10 +110,16 @@
     <Compile Include="Pages\Listings.aspx.designer.cs">
       <DependentUpon>Listings.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Store.Master.cs">
+      <DependentUpon>Store.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Store.Master.designer.cs">
+      <DependentUpon>Store.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AppStart\" />
     <Folder Include="Controls\" />
     <Folder Include="Pages\Admin\" />
     <Folder Include="Pages\Helpers\" />
