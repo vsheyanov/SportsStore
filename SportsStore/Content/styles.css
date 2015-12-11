@@ -1,0 +1,7 @@
+﻿.pages a{
+    margin-left: 5px;
+}
+
+a.selected{
+    font-weight: bold;
+}

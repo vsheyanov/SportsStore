@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Sports store</title>
+    <link rel="stylesheet" href="../Content/styles.css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -18,5 +19,12 @@
                   } %>  
         </div>
     </form>
+
+    <div class="pages">
+        <% for (int i = 0; i < MaxPage; i++)
+            {
+                Response.Write(string.Format("<a href='Listings.aspx?page={0}' {1}>{0}</a>", i+1, (i+1==CurrentPage?"class='selected'":"")));
+            } %>
+    </div>
 </body>
 </html>
