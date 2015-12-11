@@ -153,3 +153,7 @@ div#cartSummary {float: right; margin: .8em; color: silver; background-color: #5
 div#cartSummary a {text-decoration: none; padding: .4em 1em .4em 1em; line-height: 2.1em;
                    margin-left: .5em; background-color: #333; color: white; border: 1px solid black;}
 
+/* Checkout */
+.checkout label {display: inline-block; width: 50px; text-align: right;}
+.checkout div input {width: 200px; margin: 2px}
+#errors {color: red;}

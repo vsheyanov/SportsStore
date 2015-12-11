@@ -31,6 +31,9 @@
                 </tr>
             </tfoot>
         </table>
-        <p class="actionButtons"><a href="<%= ReturnURL %>">Continue shopping</a></p>
+        <p class="actionButtons">
+            <a href="<%= ReturnURL %>">Continue shopping</a>
+            <a href="<%= CheckoutURL %>">Checkout</a>
+        </p>
     </div>
 </asp:Content>
