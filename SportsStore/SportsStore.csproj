@@ -81,6 +81,7 @@
     <Content Include="Content\styles.css" />
     <Content Include="Controls\CategoryList.ascx" />
     <Content Include="packages.config" />
+    <Content Include="Pages\CartView.aspx" />
     <Content Include="Pages\Store.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -108,9 +109,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Repository\EFDbContext.cs" />
     <Compile Include="Models\Repository\Repository.cs" />
+    <Compile Include="Pages\CartView.aspx.cs">
+      <DependentUpon>CartView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CartView.aspx.designer.cs">
+      <DependentUpon>CartView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Helpers\SessionHelper.cs" />
     <Compile Include="Pages\Listings.aspx.cs">
       <DependentUpon>Listings.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -129,7 +139,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\Admin\" />
-    <Folder Include="Pages\Helpers\" />
     <Folder Include="Scripts\" />
   </ItemGroup>
   <PropertyGroup>

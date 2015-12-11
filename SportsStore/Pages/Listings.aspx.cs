@@ -4,9 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Routing;
 
 using SportsStore.Models;
 using SportsStore.Models.Repository;
+
+using SportsStore.Pages.Helpers;
 
 namespace SportsStore.Pages
 {
@@ -18,10 +21,26 @@ namespace SportsStore.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+                return;
 
+            int selectedProductId;
+
+            if (int.TryParse(Request.Form["add"], out selectedProductId))
+            {
+                Product product = repository.Products
+                    .Where(p => p.ProductID == selectedProductId)
+                    .FirstOrDefault();
+                if (product != null)
+                {
+                    SessionHelper.GetCart(Session).AddItem(product, 1);
+                    SessionHelper.Set(Session, SessionKey.RETURN_URL, Request.RawUrl);
+                    Response.Redirect(RouteTable.Routes.GetVirtualPath(null, "cart", null).VirtualPath);
+                }
+            }
         }
 
-        protected IEnumerable<Product> GetProducts()
+        public IEnumerable<Product> GetProducts()
         {
             return FilteredProducts()
                 .OrderBy(product => product.Price)
@@ -58,6 +77,6 @@ namespace SportsStore.Pages
             int page;
             string reqValue = (string)RouteData.Values["page"] ?? Request.QueryString["page"];
             return reqValue != null && int.TryParse(reqValue, out page) ? page : 1;
-        }
+        }        
     }
 }

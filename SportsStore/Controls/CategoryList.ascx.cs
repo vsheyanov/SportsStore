@@ -25,16 +25,21 @@ namespace SportsStore.Controls
                 .OrderBy(x => x);
         }
 
-        protected String CreateHomeLink()
+        protected string CreateHomeLink()
         {
             string path = RouteTable.Routes.GetVirtualPath(null, null).VirtualPath;
             return string.Format("<a href='{0}'>Home</a>", path);
         }
-
-        protected String CreateLinkHtml(string category)
+        
+        protected string CreateLinkHtml(string category)
         {
             string path = RouteTable.Routes.GetVirtualPath(null, null, new RouteValueDictionary() { { "category", category }, { "page", "1" } }).VirtualPath;
-            return string.Format("<a href ='{0}'>{1}</a>", path, category);
+            return string.Format("<a href ='{0}' {1}>{2}</a>", path, (GetCurrentCategory() == category ? "class='selected'" : ""),category);
+        }
+
+        private string GetCurrentCategory ()
+        {
+            return (string)Page.RouteData.Values["category"] ?? Request.QueryString["category"];
         }
     }
 }
