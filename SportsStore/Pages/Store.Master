@@ -6,6 +6,7 @@
 <head runat="server">
     <title>Sports Store</title>
     <link rel="stylesheet" href="/Content/styles.css" />
+    <%: System.Web.Optimization.Scripts.Render("~/bundles/validation") %>
 </head>
 <body>
     <form id="form1" runat="server">

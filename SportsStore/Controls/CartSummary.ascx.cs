@@ -20,6 +20,7 @@ namespace SportsStore.Controls
             csQuantity.InnerText = userCart.Lines.Sum(line => line.Quanity).ToString();
             csTotal.InnerText = userCart.ComputeTotalValue().ToString("c");
             csLink.HRef = RouteTable.Routes.GetVirtualPath(null, "checkout", null).VirtualPath;
+            csCart.HRef = RouteTable.Routes.GetVirtualPath(null, "cart", null).VirtualPath;
         }
     }
 }

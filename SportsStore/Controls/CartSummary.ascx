@@ -7,4 +7,5 @@
         <span id="csTotal" runat="server"></span>
     </span>
     <a id="csLink" runat="server">Checkout</a>
+    <a id="csCart" runat="server">Cart</a>
 </div>
